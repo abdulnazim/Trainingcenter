@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Training Center Home Page</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+  </head>
+  <body>
+    <h1>Prime Intuit Home Page</h1>
+    <img src="{% static 'images/img.png'%}" alt="could not find the image">
+    <p>one of the finest finishing schools</p>
+    <p>data specialization program</p>
+  {{Insert_Me}}
+  <div class="Batch_Table">
+
+    {% if access_record %}
+    <table>
+      <thead>
+      <th> batch_id </th>
+       <th> course_id </th>
+       <th> start_date </th>
+       <th> end_date </th>
+     </thead>
+      {% for b in access_record %}
+      <tr>
+        <td>{{b.batch_ID}}</td>
+        <td>{{b.course_ID}}</td>
+        <td>{{b.start_date}}</td>
+        <td>{{b.end_date}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>no batch records found</p>
+    {% endif %}
+
+  </div>
+  </body>
+</html>
+
